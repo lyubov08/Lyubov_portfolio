@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="authot" content="Ворончихина Л.К.">
+    <meta name="author" content="Ворончихина Л.К.">
     <meta name="description" content="Портфолио 2025-...">
     <meta name="keywords" content="Портфолио, html, css, js, php, django, nodejs, проекты">
 
@@ -18,13 +18,13 @@
         <nav class="margin-content">
             <ul>
                 <li>
-                    <a href="index.html" class="header_logo">
+                    <a href="index.html" class="header__logo">
                         <img src="./assets/img/nav_icon.svg" alt="nav_icon">
                         Lyubov V.
                     </a>
                     <div>
-                        <img src="./assets/img/underLogo.svg" alt="underLogo" id="underLogo">
-                        <div class="circle" id="circleLeft"></div>
+                        <img src="./assets/img/underLogo.svg" alt="underLogo" id="header__decoration">
+                        <div class="header__circle" id="header__circleLeft"></div>
                     </div>
                 </li>
                 <li class="sections">
@@ -33,7 +33,7 @@
                     <a href="#contacts">Контакты</a>
 
                     <img src="./assets/img/underSections.svg" alt="underSections" id="underSections">
-                    <div class="circle" id="circleRight"></div>
+                    <div class="header__circle" id="header__circleRight"></div>
                 </li>
             </ul>
         </nav>
@@ -71,7 +71,7 @@
             </div>
             <div class="aboutTxt">
                 <div>
-                    <p class="aboutH1 h1">Обо мне</p>
+                    <p class="about__title h1">Обо мне</p>
                     <img src="./assets/img/about_cloud.svg" alt="about_cloud" id="about_cloud">
                 </div>
 
@@ -152,7 +152,7 @@
                     <p>Название</p>
                 </a>
             </div>
-            <button id="watchMore">смотреть больше...</button>
+            <button type="button" id="watchMore">смотреть больше...</button>
         </section>
         <section id="contacts">
             <div>
@@ -162,9 +162,12 @@
             <div>
                 <p class="h1" id="contactH">Контакты</p>
                 <div id="allContact">
-                    <p class="iconBefore" id="mail">lyubovvoronchikhina@gmail.com</p>
-                    <p class="iconBefore" id="telegram">пкернгш</p>
-                    <p class="iconBefore" id="gitgub">дшнлгекноеруц</p>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lyubovvoronchikhina@gmail.com" class="iconBefore" id="mail" target="_blank">Напишите на почту</a>
+
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="iconBefore" id="telegram">пкернгш</a>
+
+                    <a href="https://github.com/lyubov08" target="_blank" rel="noopener noreferrer" class="iconBefore"
+                        id="gitgub">GitHub профиль</a>
                 </div>
             </div>
         </section>
@@ -174,9 +177,11 @@
         <div id="footerContact">
             <p class="footerH">Контакты</p>
             <div>
-                <img src="./assets/img/footer_mail.svg" alt="footer_mail">
-                <img src="./assets/img/footer_tg.svg" alt="footer_tg">
-                <img src="./assets/img/footer_github.svg" alt="footer_github">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lyubovvoronchikhina@gmail.com" target="_blank"><img src="./assets/img/footer_mail.svg" alt="footer_mail"></a>
+
+                <a href="#"><img src="./assets/img/footer_tg.svg" alt="footer_tg"></a>
+
+                <a href="https://github.com/lyubov08" target="_blank"><img src="./assets/img/footer_github.svg" alt="footer_github"></a>
             </div>
         </div>
         <div id="footerArrowTxt">

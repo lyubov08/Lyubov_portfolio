@@ -196,7 +196,7 @@ svg * {
   /* main colors */
   --bg-light: #f6f1e3;
   --bg-green: #344c36;
-  --detail-yeallow: #faad1a;
+  --detail-yellow: #faad1a;
   --detail-orange: #f0603c;
 
   /* text color */
@@ -229,7 +229,7 @@ svg * {
   font-display: swap;
 }
 
-* {
+html, body {
   font-family: "Jura";
   color: var(--txt-dark);
 }
@@ -264,8 +264,12 @@ nav ul li {
 
   position: relative;
 }
+header a,
+header a:visited {
+  color: var(--txt-dark);
+}
 
-.header_logo {
+.header__logo {
   font-family: var(--font-family-accent);
   font-size: 30px;
 
@@ -274,7 +278,7 @@ nav ul li {
   position: relative;
   z-index: 1;
 }
-.header_logo img {
+.header__logo img {
   margin-right: 10px;
 
   position: relative;
@@ -282,17 +286,17 @@ nav ul li {
 
   transition: transform 1s ease;
 }
-.header_logo:hover img {
+.header__logo:hover img {
   transform: rotate(90deg) scale(1.25);
 }
 
-#underLogo {
+#header__decoration {
   position: absolute;
   top: -15px;
   left: 70px;
   z-index: 0;
 }
-.circle {
+.header__circle {
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -302,12 +306,12 @@ nav ul li {
 
   position: relative;
 }
-#circleLeft {
+#header__circleLeft {
   top: 15px;
   left: -110px;
   z-index: 0;
 }
-#circleRight {
+#header__circleRight {
   top: 13px;
   left: -150px;
   z-index: 0;
@@ -384,7 +388,7 @@ nav ul li {
   width: 320px;
   height: 270px;
 
-  border: 3px solid var(--detail-yeallow);
+  border: 3px solid var(--detail-yellow);
   border-radius: 20px;
 
   position: absolute;
@@ -401,7 +405,7 @@ nav ul li {
   width: 70px;
   height: 70px;
 
-  border: 2px solid var(--detail-yeallow);
+  border: 2px solid var(--detail-yellow);
   border-radius: 10px;
   padding: 2px;
 
@@ -420,7 +424,7 @@ nav ul li {
   width: 750px;
   height: 480px;
 
-  border: 4px solid var(--detail-yeallow);
+  border: 4px solid var(--detail-yellow);
   border-right: none;
   border-radius: 250px 0 0 250px;
   padding: 15px 0 15px 15px;
@@ -522,7 +526,7 @@ nav ul li {
 
   color: var(--txt-light);
 }
-.aboutH1 {
+.about__title {
   display: inline-block;
 
   margin-top: 50px;
@@ -606,7 +610,7 @@ nav ul li {
 }
 
 #skillsH1 {
-  background-color: var(--detail-yeallow);
+  background-color: var(--detail-yellow);
   border-radius: 0 15px 15px 0;
 
   width: 405px;
@@ -691,7 +695,7 @@ nav ul li {
   height: 200px;
 
   background-color: var(--bg-light);
-  border: 5px solid var(--detail-yeallow);
+  border: 5px solid var(--detail-yellow);
 
   border-radius: 15px;
   margin-bottom: 20px;
@@ -742,8 +746,8 @@ nav ul li {
   width: 400px;
   height: 400px;
 
-  background-color: var(--detail-yeallow);
-  box-shadow: 0px 0px 20px 5px var(--detail-yeallow);
+  background-color: var(--detail-yellow);
+  box-shadow: 0px 0px 20px 5px var(--detail-yellow);
 
   border-radius: 50%;
 
@@ -768,9 +772,12 @@ nav ul li {
   margin: -50px 0 70px 0;
 }
 
-#allContact p {
+#allContact a {
+  width: 100%;
   font-size: 24px;
-  margin-top: 50px;
+}
+#allContact a, #allContact a:visited{
+  color: var(--txt-dark);
 }
 .iconBefore {
   position: relative;
@@ -820,9 +827,10 @@ footer * {
 
 #footerContact > div {
   display: flex;
+  align-items: center;
   margin-top: 30px;
 }
-#footerContact > div > img:nth-child(2) {
+#footerContact > div > a:nth-child(2) {
   padding: 0 30px 0 30px;
 }
 

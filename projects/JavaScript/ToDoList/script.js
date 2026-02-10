@@ -112,7 +112,7 @@ const todo = {
       this.add();
     });
 
-    elements.input.addEventListener("keypress", (e) => {
+    elements.input.addEventListener("keyup", (e) => {
       if (e.key === "Enter") {
         this.add();
       }

@@ -13,12 +13,15 @@ class WeatherApp {
       inputEnterCity: document.querySelector(".container-search input"),
       btnSearch: document.querySelector(".container-search button"),
 
+      containerInfo: document.querySelector(".information"),
       iconWeather: document.querySelector("#iconWeather"),
       degrees: document.querySelector("#degrees"),
       cityName: document.querySelector("#city-name"),
 
       infoWind: document.querySelector(".wind p"),
       infoHumidity: document.querySelector(".humidity p"),
+
+      errorCityNotFound: document.querySelector(".notCity"),
     };
   }
 
@@ -32,17 +35,32 @@ class WeatherApp {
       const response = await fetch(
         this.apiUrl + city + "&appid=" + this.apiKey,
       );
+      const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error("Город не найден");
+      if (!response.ok || data.code == "404") {
+        this.showError();
+        return;
       }
 
-      const data = await response.json();
       this.displayWeather(data);
+      this.hideError();
+
       console.log(data);
     } catch (error) {
       alert(error.message);
     }
+
+    this.elements.inputEnterCity.value = "";
+  }
+
+  showError() {
+    this.elements.errorCityNotFound.style.display = "block";
+    this.elements.containerInfo.style.display = "none";
+  }
+
+  hideError() {
+    this.elements.errorCityNotFound.style.display = "none";
+    this.elements.containerInfo.style.display = "block";
   }
 
   displayWeather(data) {
@@ -51,25 +69,25 @@ class WeatherApp {
     this.elements.infoHumidity.innerHTML = data.main.humidity + " %";
     this.elements.infoWind.innerHTML = Math.round(data.wind.speed) + " km/h";
 
-    this.updateIconWeather(data.weather[0].main)
+    this.updateIconWeather(data.weather[0].main);
   }
 
-  updateIconWeather(nameWeather){
+  updateIconWeather(nameWeather) {
     const weather = {
-        'Clear': "fa-sun",
-        'Clouds': "fa-cloud",
-        'Rain': "fa-cloud-showers-heavy",
-        'Thunderstorm': "fa-cloud-bolt",
-        'Snow': "fa-snowflake",
-        'Fog': "fa-smog",
-        'Tornado': "fa-tornado",
+      Clear: "fa-sun",
+      Clouds: "fa-cloud",
+      Rain: "fa-cloud-showers-heavy",
+      Thunderstorm: "fa-cloud-bolt",
+      Snow: "fa-snowflake",
+      Fog: "fa-smog",
+      Tornado: "fa-tornado",
+    };
+
+    if (!weather[nameWeather]) {
+      this.elements.iconWeather.className = "fa-solid " + weather["Clouds"];
+    } else {
+      this.elements.iconWeather.className = "fa-solid " + weather[nameWeather];
     }
-    
-    if(!weather[nameWeather]){
-        this.elements.iconWeather.className = "fa-solid " + weather['Clear']
-    }
-    
-    this.elements.iconWeather.className = "fa-solid " + weather[nameWeather]
   }
 
   bindEvents() {

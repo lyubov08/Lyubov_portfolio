@@ -10,6 +10,8 @@ class WeatherApp {
 
   cacheElements() {
     this.elements = {
+      body: document.querySelector("body"),
+
       inputEnterCity: document.querySelector(".container-search input"),
       btnSearch: document.querySelector(".container-search button"),
 
@@ -56,6 +58,8 @@ class WeatherApp {
   showError() {
     this.elements.errorCityNotFound.style.display = "block";
     this.elements.containerInfo.style.display = "none";
+    this.elements.body.style.backgroundImage = "none";
+    this.elements.body.classList.remove("background-image");
   }
 
   hideError() {
@@ -83,10 +87,14 @@ class WeatherApp {
       Tornado: "fa-tornado",
     };
 
+    this.elements.body.className = "background-image";
+
     if (!weather[nameWeather]) {
       this.elements.iconWeather.className = "fa-solid " + weather["Clouds"];
+      this.elements.body.style.backgroundImage = `url(img/Clouds.jpg)`;
     } else {
       this.elements.iconWeather.className = "fa-solid " + weather[nameWeather];
+      this.elements.body.style.backgroundImage = `url(img/${nameWeather}.jpg)`;
     }
   }
 

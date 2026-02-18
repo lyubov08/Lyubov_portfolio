@@ -22,7 +22,7 @@ body {
 .background-image {
   background-size: cover;
   background-position: center;
-  
+
   z-index: -1;
 }
 
@@ -148,4 +148,75 @@ body {
 .wind i,
 .humidity i {
   font-size: 32px;
+}
+
+/* Стили для телефона */
+@media (max-width: 576px) {
+
+  /* main container */
+  .container-glass {
+    width: 250px;
+    padding: 15px;
+
+    border-radius: 20px;
+  }
+
+  /* search container */
+  .container-search {
+    gap: 10px;
+    padding: 15px;
+
+    border-radius: 30px;
+  }
+
+  .container-search input {
+    font-size: 12px;
+  }
+
+  .container-search i {
+    font-size: 14px;
+  }
+
+  /* weather result */
+  .information,
+  .notCity {
+    margin-top: 15px;
+  }
+
+  .information i {
+    font-size: 55px;
+    margin-bottom: 5px;
+  }
+
+  #degrees,
+  .notCity p {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 5px 0;
+  }
+
+  #city-name {
+    font-size: 18px;
+  }
+
+  /* wind and humidity */
+  .wind-humidity {
+    margin-top: 20px;
+    padding-top: 15px;
+  }
+
+  .wind,
+  .humidity {
+    gap: 5px;
+  }
+
+  .wind p,
+  .humidity p {
+    font-size: 14px;
+  }
+
+  .wind i,
+  .humidity i {
+    font-size: 24px;
+  }
 }
